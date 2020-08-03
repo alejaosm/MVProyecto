@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Information</h2>
+<mat-dialog-content class="mat-typography">
+  <button mat-button color="primary" data-toggle="collapse" data-target="#creators">Creators</button>
+  <button mat-button color="primary" data-toggle="collapse" data-target="#stories">Stories</button>
+  <button mat-button color="primary" data-toggle="collapse" data-target="#characters">Characters</button>
+  <div id="creators" class="collapse">
+    <div >
+      <ul class="list-group" *ngFor="let item of dataItem.data.creators.items; index as i">
+        <li class="list-group-item"> {{item.name}}</li>
+        <li class="list-group-item" *ngIf="item == null && item == ''">No hay información relacionada.</li>
+      </ul>
+    </div>
+  </div> 
+  <div id="stories" class="collapse">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body" *ngFor="let item of dataItem.data.stories.items">
+        <p class="card-text">{{item.name}}</p>
+      </div>
+    </div>
+  </div>
+  <div id="characters" class="collapse">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body" *ngFor="let item of dataItem.data.characters.items">
+        <p class="card-text">{{item.name}}</p>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

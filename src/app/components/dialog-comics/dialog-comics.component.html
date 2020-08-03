@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Creators</h2>
+<mat-dialog-content class="mat-typography">
+  Aquí encuentras la información de los creators para este comic.
+  <div >
+    <ul class="list-group" *ngFor="let item of dataItem.data.creators.items; index as i">
+        <li class="list-group-item"> {{item.name}}</li>
+        <li class="list-group-item" *ngIf="item == null">No hay información relacionada.</li>
+    </ul>
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

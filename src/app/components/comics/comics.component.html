@@ -1,0 +1,23 @@
+<div class="wrap">
+    <div class="search">
+       <input type="text" class="searchTerm" placeholder="What are you looking for?" (keyup.enter)="getData(filtro.value)" #filtro>
+       <button type="submit" class="searchButton" (click)="getData(filtro.value)">
+         <i class="material-icons">search</i>
+      </button>
+    </div>
+ </div>
+<div class="row">
+    <div class="col-sm-4 py-2" *ngFor="let item of allComics">
+        <div class="card h-100 text-white bg-dark">
+            <div class="card-body">
+                <h3 class="card-title">{{item.title}}</h3>
+                <img class="img-comics" src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt="{{item.name}}" >
+                <p class="card-text" *ngIf="item.description == null">No hay descripción para mostrar.</p>
+                <p class="card-text Roboto" [innerHTML]="item.description"></p>
+                <a (click)="openDialog($event,item)" class="btn btn-outline-light">More info</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
